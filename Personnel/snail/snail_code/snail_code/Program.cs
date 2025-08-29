@@ -1,48 +1,87 @@
-﻿using System;
+﻿
 
-namespace MyApp
+
+Console.Clear();
+Console.CursorVisible = false;
+
+Snail snail = new Snail(ConsoleColor.Blue);
+
+while (snail.isAlive())
 {
-    internal class Program
+    snail.hide();
+    snail.move();
+    snail.show();
+    Thread.Sleep(100);
+}
+Console.ReadKey();
+
+/// <summary>
+/// Class representing a snail
+/// </summary>
+public class Snail
+{
+    private int _x;
+    private int _y;
+    private ConsoleColor _color;
+    private int _energy = 50;
+
+    private const string SNAIL = "_@_ö";
+    private const string NO_SNAIL = "    ";
+    private const string DEAD_SNAIL = "____";
+
+    /// <summary>
+    /// Constructor
+    /// </summary>
+    /// <param name="color"></param>
+    public Snail(ConsoleColor color)
     {
-        static void Main(string[] args)
+        _x = 1;
+        _y = 10; // default birth place for snails
+        _color = color;
+    }
+
+    /// <summary>
+    /// Tells if the snail is stil alive
+    /// </summary>
+    /// <returns></returns>
+    public bool isAlive()
+    {
+        return _energy > 0;
+    }
+
+    /// <summary>
+    /// Move the beast
+    /// </summary>
+    public void move()
+    {
+        _x++; // moving left to right only at this stage
+        _energy--; // moving costs energy
+    }
+
+    /// <summary>
+    /// Make the snail disappear
+    /// </summary>
+    public void hide()
+    {
+        Console.SetCursorPosition(_x, _y);
+        Console.Write(NO_SNAIL);
+    }
+
+    /// <summary>
+    /// Show the snail according to its state
+    /// </summary>
+    public void show()
+    {
+        Console.ForegroundColor = _color;
+        Console.SetCursorPosition(_x, _y);
+        if (this.isAlive())
         {
-            int vertical = 10;
-            /*
-            Console.SetCursorPosition(horizontal, vertical);
-            Console.WriteLine(body);
-            do 
-            {
-                Console.SetCursorPosition(horizontal, vertical);
-                Console.WriteLine("    ");
-                Console.SetCursorPosition(horizontal, vertical);
-                horizontal++;
-                Console.SetCursorPosition(horizontal, vertical);
-                Console.WriteLine(body);
-                life--;
-                Thread.Sleep(100);
-            }while(life!=0);
-            Console.SetCursorPosition(horizontal, vertical);
-            Console.WriteLine("____");
-            */
+            Console.Write(SNAIL);
+        }
+        else
+        {
+            Console.Write(DEAD_SNAIL);
         }
     }
-    public class snail
-    {
-        public int _life;
-        public int _vertical;
-        public int _horizontal;
-        public string _body;
-        public snail(int life, int horizontal, string body)
-        {
-            this._life = life;
-            this._horizontal = horizontal;
-            this._body = body;
-        }
-        public snail()
-        {
-            this._body = "_@_ö";
-            this._life = 50;
-            this._horizontal=1;
-        }
-    }
+
 }
