@@ -11,6 +11,9 @@ namespace MyApp
             Console.CursorVisible = false;
             Console.WindowWidth = Config.SCREEN_WIDTH;
             Console.WindowHeight = Config.SCREEN_HEIGHT;
+            //détecte les touche
+            ConsoleKeyInfo keyPressed;
+            //créer avion et Bob
             Plane plane = new Plane();
             for (int i = 0; i > 10; i++)
             {
@@ -18,6 +21,18 @@ namespace MyApp
             }
             while (true)
             {
+                Console.Clear();
+                if (Console.KeyAvailable) // L'utilisateur a pressé une touche
+                {
+                    keyPressed = Console.ReadKey(false);
+                    switch (keyPressed.Key)
+                    {
+                        case ConsoleKey.Escape:
+                            Environment.Exit(0);
+                            break;
+
+                    }
+                }
                 // Modifier le modèle (ce qui *est*)
                 plane.update();
 
