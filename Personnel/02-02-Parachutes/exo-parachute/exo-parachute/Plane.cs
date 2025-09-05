@@ -28,18 +28,22 @@ namespace exo_parachute
         }
         public void update()
         {
-            if (_x < Config.SCREEN_WIDTH) 
-            { 
-
+            if (_x > Config.SCREEN_WIDTH)
+            {
+                _x = 0;
             }
-            _x++;
+            else
+            {
+                _x++;
+            }
         }
 
         public void draw()
         {
             for (int i = 0; i < view.Length; i++)
             {
-
+                Console.SetCursorPosition(_x, i);
+                Console.Write(view[i]);
             }
         }
     }

@@ -1,5 +1,5 @@
-﻿using System;
-using System.Numerics;
+﻿using exo_parachute;
+using System;
 
 namespace MyApp
 {
@@ -7,31 +7,22 @@ namespace MyApp
     {
         static void Main(string[] args)
         {
+            Console.Clear();
+            Console.CursorVisible = false;
+            Console.WindowWidth = Config.SCREEN_WIDTH;
+            Console.WindowHeight = Config.SCREEN_HEIGHT;
+            Plane plane = new Plane();
             while (true)
             {
-                
-            }
-        }
-    }
-    public class Plane
-    {
-        private int _x;
-        private int _y;
-        public Plane()
-        {
-            _x = 1;
-            _y = Config.SCREEN_HEIGHT;
-        }
-        public void update()
-        {
-            _x++;
-        }
-       
-        public void draw()
-        {
-            for (int i = 0; i < view.Length; i++)
-            {
+                // Modifier le modèle (ce qui *est*)
+                plane.update();
 
+                // Modifier ce que l'on *voit*
+                Console.Clear();
+                plane.draw();
+
+                // Temporiser
+                Thread.Sleep(100);
             }
         }
     }
