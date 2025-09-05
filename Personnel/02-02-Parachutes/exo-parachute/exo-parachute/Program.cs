@@ -13,9 +13,13 @@ namespace MyApp
             Console.WindowHeight = Config.SCREEN_HEIGHT;
             //détecte les touche
             ConsoleKeyInfo keyPressed;
+
+            //créer les group de Bob
+            List<Para> InTheAir = new List<Para>();
+
             //créer avion et Bob
             Plane plane = new Plane();
-            for (int i = 0; i > 10; i++)
+            for (int i = 0; i < 10; i++)
             {
                 plane.board(new Para("Bob " + i.ToString()));
             }
@@ -31,6 +35,10 @@ namespace MyApp
                             Environment.Exit(0);
                             break;
 
+                            case ConsoleKey.Spacebar:
+                            Para jumper = plane.Jump();
+                            InTheAir.Add(jumper);
+                            break;
                     }
                 }
                 // Modifier le modèle (ce qui *est*)
@@ -39,6 +47,7 @@ namespace MyApp
                 // Modifier ce que l'on *voit*
                 Console.Clear();
                 plane.draw();
+                Para.draw();
 
                 // Temporiser
                 Thread.Sleep(100);

@@ -21,12 +21,12 @@ namespace exo_parachute
         };
         private int _x;
         private int _y;
-        public List<Para> Bob;
+        public List<Para> Bobs;
         public Plane()
         {
             _x = 0;
             _y = Config.SCREEN_HEIGHT;
-            Bob = new List<Para>();
+            Bobs = new List<Para>();
         }
         public void update()
         {
@@ -50,7 +50,15 @@ namespace exo_parachute
         }
         public void board(Para para)
         {
-            this.Bob.Add(para);
+            this.Bobs.Add(para);
+        }
+        public Para Jump()
+        {
+            Para Bob = Bobs.First();
+            Bobs.Remove(Bob);
+            Bob.X = _x;
+            Bob.Y = this._y;
+            return Bob;
         }
     }
 }
