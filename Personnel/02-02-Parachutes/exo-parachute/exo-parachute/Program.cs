@@ -9,22 +9,9 @@ namespace MyApp
         {
             while (true)
             {
-                // Modifier le modèle (ce qui *est*)
-                Plane.update();
-
-                // Modifier ce que l'on *voit*
-                Console.Clear();
-                Plane.draw();
-
-                // Temporiser
-                Thread.Sleep(100);
+                
             }
         }
-    }
-    static class Config
-    {
-        public const int SCREEN_HEIGHT = 40;
-        public const int SCREEN_WIDTH = 150;
     }
     public class Plane
     {
@@ -33,20 +20,19 @@ namespace MyApp
         public Plane()
         {
             _x = 1;
-            _y = 10;
+            _y = Config.SCREEN_HEIGHT;
         }
         public void update()
         {
             _x++;
         }
-        private string[] draw =
+       
+        public void draw()
         {
-            @" _                         ",
-            @"| \                        ",
-            @"|  \       ______          ",
-            @"--- \_____/  |_|_\____  |  ",
-            @"  \_______ --------- __>-} ",
-            @"        \_____|_____/   |  "
-        };
+            for (int i = 0; i < view.Length; i++)
+            {
+
+            }
+        }
     }
 }
