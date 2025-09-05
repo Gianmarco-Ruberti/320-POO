@@ -12,6 +12,10 @@ namespace MyApp
             Console.WindowWidth = Config.SCREEN_WIDTH;
             Console.WindowHeight = Config.SCREEN_HEIGHT;
             Plane plane = new Plane();
+            for (int i = 0; i > 10; i++)
+            {
+                plane.board(new Para("Bob " + i.ToString()));
+            }
             while (true)
             {
                 // Modifier le modèle (ce qui *est*)
