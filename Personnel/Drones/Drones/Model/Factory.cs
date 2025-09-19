@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Drones
 {
@@ -21,10 +22,15 @@ namespace Drones
         }
         public int X { get { return _x; } set { _x = value; } }
         public int Y { get { return _y; } set { _y = value; } }
-
+        List<Box> box = new List<Box>();
         public void Update(int interval)
         {
-
+            int frameCount = 0;
+            frameCount++;
+            if (frameCount % 5 == 0) 
+            {
+                box.Add(new Box(800, 100));
+            }
         }
     }
 }
