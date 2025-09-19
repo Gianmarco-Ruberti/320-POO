@@ -20,7 +20,7 @@ namespace Drones
         BufferedGraphics airspace;
 
         // Initialisation de l'espace aérien avec un certain nombre de drones
-        public AirSpace(List<Drone> fleet, List<Building> building)
+        public AirSpace(List<Drone> fleet, List<Building> building, List<Factory> factory)
         {
             InitializeComponent();
             // Gets a reference to the current BufferedGraphicsContext
@@ -30,6 +30,7 @@ namespace Drones
             airspace = currentContext.Allocate(this.CreateGraphics(), this.DisplayRectangle);
             this.fleet = fleet;
             this._building = building;
+            this._factory = factory;
         }
 
         // Affichage de la situation actuelle
@@ -48,6 +49,10 @@ namespace Drones
                 building.Render(airspace);
             }
 
+            foreach (Factory factory in _factory)
+            {
+                factory.Render(airspace);
+            }
 
             airspace.Render();
         }
