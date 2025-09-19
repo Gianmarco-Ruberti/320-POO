@@ -18,9 +18,12 @@ namespace Drones
 
             List<Building> building= new List<Building>();
             building.Add(new Building(AirSpace.WIDTH/3, AirSpace.HEIGHT/3));
+            building.Add(new Building(900, 400));
+            building.Add(new Building(500, 450));
+            building.Add(new Building(800, 100));
 
             List<Factory> factory = new List<Factory>();
-            factory.Add(new Factory(100, 300));
+            factory.Add(new Factory(100, 300, 001));
 
             // Démarrage
             Application.Run(new AirSpace(fleet, building, factory));

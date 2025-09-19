@@ -64,6 +64,11 @@ namespace Drones
             {
                 drone.Update(interval);
             }
+
+            foreach (Factory factory in _factory)
+            {
+                factory.Update(interval);
+            }
         }
 
         // Méthode appelée à chaque frame
