@@ -18,6 +18,12 @@ namespace Drones
             _name = name;
             _charge = GlobalHelpers.alea.Next(FULLCHARGE); // La charge initiale de la batterie est choisie aléatoirement
         }
+        public Drone(int x, int y)
+        {
+            _x=x; 
+            _y=y;
+             _charge = GlobalHelpers.alea.Next(FULLCHARGE);
+        }
         public int X { get { return _x;} set { _x = value; } }
         public int Y { get { return _y;} set { _y = value; } }
         public string Name { get { return _name;} }
