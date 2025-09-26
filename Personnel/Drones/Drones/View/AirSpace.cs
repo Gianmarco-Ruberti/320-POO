@@ -1,4 +1,5 @@
 using Drones;
+using System;
 
 namespace Drones
 {
@@ -23,16 +24,27 @@ namespace Drones
         // Initialisation de l'espace aérien avec un certain nombre de drones
         public AirSpace(List<Drone> fleet, List<Building> building, List<Factory> factory, List<Box> box)
         {
-            InitializeComponent();
-            // Gets a reference to the current BufferedGraphicsContext
-            currentContext = BufferedGraphicsManager.Current;
-            // Creates a BufferedGraphics instance associated with this form, and with
-            // dimensions the same size as the drawing surface of the form.
-            airspace = currentContext.Allocate(this.CreateGraphics(), this.DisplayRectangle);
-            this.fleet = fleet;
-            this._building = building;
-            this._factory = factory;
-            this._box = box;
+            try 
+            {
+                InitializeComponent();
+                // Gets a reference to the current BufferedGraphicsContext
+                currentContext = BufferedGraphicsManager.Current;
+                // Creates a BufferedGraphics instance associated with this form, and with
+                // dimensions the same size as the drawing surface of the form.
+                airspace = currentContext.Allocate(this.CreateGraphics(), this.DisplayRectangle);
+                this.fleet = fleet;
+                this._building = building;
+                this._factory = factory;
+                this._box = box;
+                if (fleet.Count > 10) 
+                {
+                    throw new Exception("erreur produite :");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
 
         // Affichage de la situation actuelle

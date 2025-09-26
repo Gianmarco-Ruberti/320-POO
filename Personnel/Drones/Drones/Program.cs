@@ -8,27 +8,51 @@ namespace Drones
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
+            try
+            {
 
-            // Création de la flotte de drones
-            List<Drone> fleet= new List<Drone>();
-            fleet.Add(new Drone(AirSpace.WIDTH / 2, AirSpace.HEIGHT / 2, "Joe"));
 
-            List<Building> building= new List<Building>();
-            building.Add(new Building(AirSpace.WIDTH/3, AirSpace.HEIGHT/3));
-            building.Add(new Building(900, 400));
-            building.Add(new Building(500, 450));
-            building.Add(new Building(800, 100));
+                // To customize application configuration such as set high DPI settings or default font,
+                // see https://aka.ms/applicationconfiguration.
+                ApplicationConfiguration.Initialize();
 
-            List<Factory> factory = new List<Factory>();
-            factory.Add(new Factory(100, 300, 001));
+                // Création de la flotte de drones
+                List<Drone> fleet = new List<Drone>();
+                fleet.Add(new Drone(AirSpace.WIDTH / 2, AirSpace.HEIGHT / 2, "Joe"));
+                fleet.Add(new Drone(AirSpace.WIDTH / 2, AirSpace.HEIGHT / 2, "Joe"));
+                fleet.Add(new Drone(AirSpace.WIDTH / 2, AirSpace.HEIGHT / 2, "Joe"));
+                fleet.Add(new Drone(AirSpace.WIDTH / 2, AirSpace.HEIGHT / 2, "Joe"));
+                fleet.Add(new Drone(AirSpace.WIDTH / 2, AirSpace.HEIGHT / 2, "Joe"));
+                fleet.Add(new Drone(AirSpace.WIDTH / 2, AirSpace.HEIGHT / 2, "Joe"));
+                fleet.Add(new Drone(AirSpace.WIDTH / 2, AirSpace.HEIGHT / 2, "Joe"));
+                fleet.Add(new Drone(AirSpace.WIDTH / 2, AirSpace.HEIGHT / 2, "Joe"));
+                fleet.Add(new Drone(AirSpace.WIDTH / 2, AirSpace.HEIGHT / 2, "Joe"));
+                fleet.Add(new Drone(AirSpace.WIDTH / 2, AirSpace.HEIGHT / 2, "Joe"));
+                fleet.Add(new Drone(AirSpace.WIDTH / 2, AirSpace.HEIGHT / 2, "Joe"));
 
-            List<Box> box = new List<Box>();
+                List<Building> building = new List<Building>();
+                building.Add(new Building(AirSpace.WIDTH / 3, AirSpace.HEIGHT / 3));
+                building.Add(new Building(900, 400));
+                building.Add(new Building(500, 450));
+                building.Add(new Building(800, 100));
 
-            // Démarrage
-            Application.Run(new AirSpace(fleet, building, factory, box));
+                List<Factory> factory = new List<Factory>();
+                factory.Add(new Factory(100, 300, 001));
+
+                List<Box> box = new List<Box>();
+
+
+                // Démarrage
+                Application.Run(new AirSpace(fleet, building, factory, box));
+                if (fleet.Count > 10)
+                {
+                    
+                }
+            }
+            catch (Exception ex) 
+            { 
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
