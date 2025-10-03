@@ -13,7 +13,7 @@ namespace Drones
             try
             {
                 Random random = new Random();
-                int nombre = random.Next(1, 10); // nombre aléatoire
+                int nombre = random.Next(2, 7); // nombre aléatoire
                 Console.WriteLine($"nombre de drone : {nombre}");
 
                 // To customize application configuration such as set high DPI settings or default font,
@@ -34,8 +34,8 @@ namespace Drones
 
                 List<Factory> factory = new List<Factory>();
                 factory.Add(new Factory(100, 350, 001));
-                factory.Add(new Factory(550, 100, 002));
-                factory.Add(new Factory(900, 450, 003));
+                //factory.Add(new Factory(550, 100, 002));
+                //factory.Add(new Factory(900, 450, 003));
                 List<Box> box = new List<Box>();
 
                 List<Store> store = new List<Store>();

@@ -10,6 +10,7 @@ namespace Drones
 {
     public partial class Factory : Building
     {
+        int frameCount = 0;
         public static readonly int FULLCHARGE = 1000;
         private int _Id;
         private int PowerConsumption;
@@ -24,12 +25,12 @@ namespace Drones
         public void Update(int interval)
         {
             PowerConsumption--;
-            Console.WriteLine($"{_Id}{this}", TextHelpers.drawFont, TextHelpers.writingBrush, X - 30, Y - 20);
-            int frameCount = 0;
+            //Console.WriteLine($"{_Id}{this}", TextHelpers.drawFont, TextHelpers.writingBrush, X - 30, Y - 20);
             frameCount++;
-            if (frameCount % 5 == 0) 
+            if (frameCount % 50 == 0) 
             {
-                box.Add(new Box(800, 100));
+                Console.WriteLine("+1 box");
+                box.Add(new Box(X + 100, Y));
             }
         }
         public override string ToString()

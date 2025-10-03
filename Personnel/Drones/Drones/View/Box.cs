@@ -9,10 +9,10 @@ namespace Drones
 {
     public partial class Box
     {
-        private Pen droneBrush = new Pen(new SolidBrush(Color.Purple), 3);
+        private Pen boxBrush = new Pen(new SolidBrush(Color.Purple), 3);
         public void Render(BufferedGraphics drawingSpace)
         {
-            drawingSpace.Graphics.DrawImage(Resources.factory, X, Y, 10, 10);
+            drawingSpace.Graphics.DrawRectangle(boxBrush, X, Y, 10, 10);
         }
     }
 }
