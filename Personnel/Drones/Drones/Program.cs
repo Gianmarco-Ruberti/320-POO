@@ -28,6 +28,7 @@ namespace Drones
                     int positionY = random.Next(200, 500);
                     fleet.Add(new Drone(positionX, positionY, "Joe"));
                 }
+
                 List<Building> building = new List<Building>();
                 building.Add(new Building(AirSpace.WIDTH / 3, AirSpace.HEIGHT / 3));
                 building.Add(new Building(900, 400));

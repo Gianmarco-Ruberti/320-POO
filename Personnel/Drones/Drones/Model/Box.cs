@@ -15,7 +15,7 @@ namespace Drones
         {
             _x = x;
             _y = y;
-            _color = Color.Red;
+            _color = Color.BlueViolet;
         }
         public int X { get { return _x; } set { _x = value; } }
         public int Y { get { return _y; } set { _y = value; } }
