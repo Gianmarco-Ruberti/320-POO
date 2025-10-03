@@ -1,3 +1,5 @@
+using System;
+
 namespace Drones
 {
     internal static class Program
@@ -10,7 +12,9 @@ namespace Drones
         {
             try
             {
-
+                Random random = new Random();
+                int nombre = random.Next(1, 10); // nombre aléatoire
+                Console.WriteLine($"nombre de drone : {nombre}");
 
                 // To customize application configuration such as set high DPI settings or default font,
                 // see https://aka.ms/applicationconfiguration.
@@ -18,8 +22,12 @@ namespace Drones
 
                 // Création de la flotte de drones
                 List<Drone> fleet = new List<Drone>();
-                fleet.Add(new Drone(AirSpace.WIDTH / 2, AirSpace.HEIGHT / 2, "Joe"));
-
+                for (int i = 0; i < nombre; i++)
+                {
+                    int positionX = random.Next(200, 1000);
+                    int positionY = random.Next(200, 500);
+                    fleet.Add(new Drone(positionX, positionY, "Joe"));
+                }
                 List<Building> building = new List<Building>();
                 building.Add(new Building(AirSpace.WIDTH / 3, AirSpace.HEIGHT / 3));
                 building.Add(new Building(900, 400));
