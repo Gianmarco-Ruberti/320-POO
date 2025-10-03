@@ -17,12 +17,13 @@ namespace Drones
         private List<Building> _building;
         private List<Factory> _factory;
         private List<Box> _box;
+        private List<Store> _store;
 
         BufferedGraphicsContext currentContext;
         BufferedGraphics airspace;
 
         // Initialisation de l'espace aérien avec un certain nombre de drones
-        public AirSpace(List<Drone> fleet, List<Building> building, List<Factory> factory, List<Box> box)
+        public AirSpace(List<Drone> fleet, List<Building> building, List<Factory> factory, List<Box> box, List<Store> store)
         {
             try 
             {
@@ -36,6 +37,7 @@ namespace Drones
                 this._building = building;
                 this._factory = factory;
                 this._box = box;
+                this._store = store;
                 if (fleet.Count > 10) 
                 {
                     throw new Exception("erreur produite :");
@@ -73,6 +75,10 @@ namespace Drones
                 box.Render(airspace);
             }
 
+            foreach (Store store in _store)
+            {
+                store.Render(airspace);
+            }
             airspace.Render();
         }
 

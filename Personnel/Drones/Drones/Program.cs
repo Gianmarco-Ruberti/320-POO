@@ -30,19 +30,21 @@ namespace Drones
                 }
 
                 List<Building> building = new List<Building>();
-                building.Add(new Building(AirSpace.WIDTH / 3, AirSpace.HEIGHT / 3));
-                building.Add(new Building(900, 400));
-                building.Add(new Building(500, 450));
-                building.Add(new Building(800, 100));
+
 
                 List<Factory> factory = new List<Factory>();
-                factory.Add(new Factory(100, 300, 001));
-
+                factory.Add(new Factory(100, 350, 001));
+                factory.Add(new Factory(550, 100, 002));
+                factory.Add(new Factory(900, 450, 003));
                 List<Box> box = new List<Box>();
 
+                List<Store> store = new List<Store>();
+                store.Add(new Store(200, 150, 001));
+                store.Add(new Store(850, 100, 002));
+                store.Add(new Store(500, 450, 003));
 
                 // Démarrage
-                Application.Run(new AirSpace(fleet, building, factory, box));
+                Application.Run(new AirSpace(fleet, building, factory, box, store));
                 if (fleet.Count > 10)
                 {
                     

@@ -8,9 +8,9 @@ namespace Drones
 {
     public partial class Building
     {
-        private int _x;
-        private int _y;
-        private Color _color;
+        protected int _x;
+        protected int _y;
+        protected Color _color;
         public Building(int x, int y)
         {
             _x = x;
