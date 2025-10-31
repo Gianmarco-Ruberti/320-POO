@@ -13,12 +13,11 @@ namespace Boat
 
         public bool LoadContainer(IContainer container)
         {
-            /*List<Container> container = new List<Container>();
+            List<Container> container = new List<Container>();
             for (int i = 0; i < MaxCargoWeight; i++)
             {
-                Container _container = new Container();
             }
-            return container.Count > 0;*/
+            return container.Count > 0;
             throw new NotImplementedException();
         }
 

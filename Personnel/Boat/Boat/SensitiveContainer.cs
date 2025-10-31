@@ -8,7 +8,7 @@ namespace Boat
 {
     class SensitiveContainer : Container
     {
-        public SensitiveContainer()
+        public SensitiveContainer(int Id, float Weight, bool IsRefrigerated, List<string> Merchandise, string Color) : base(Id, Weight, IsRefrigerated, Merchandise, Color)
         {
         }
     }

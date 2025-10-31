@@ -8,5 +8,9 @@ namespace Boat
 {
     class TankContainer : Container
     {
+        public TankContainer(int Id, float Weight, bool IsRefrigerated, List<string> Merchandise, string Color) : base(Id, Weight, IsRefrigerated, Merchandise, Color)
+        { 
+
+        }
     }
 }
