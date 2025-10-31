@@ -31,6 +31,14 @@ namespace Drones
         public bool Evacuate(Rectangle zone)
         {
             throw new NotImplementedException();
+            /*if (Drone() < zone)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }*/
         }
 
         public void FreeFlight()
